@@ -52,6 +52,9 @@ h1.title {
   font-size: 2em;
   font-style: normal;
 }
+h1#banner {
+  background-color: #fa320a;
+}
 table#movies {
   margin: 10px;
   border-collapse: collapse;
@@ -67,6 +70,9 @@ table#movies th,
 table#movies td {
   padding: 4px;
   text-align: left;
+}
+tr:hover {
+  background-color: yellow;
 }
 #notice,
 #warning {

@@ -1,6 +1,9 @@
 class MoviesController < ApplicationController
     def index
-      @movies = Movie.all
+     @movies = Movie.all
+     #render json: @movies
+
+
     end
     def show
       id = params[:id] # retrieve movie ID from URI route
@@ -15,7 +18,7 @@ class MoviesController < ApplicationController
       permitted = params[:movie].permit(:title,:rating,:release_date)
       @movie = Movie.create!(permitted)
       flash[:notice] = "#{@movie.title} was successfully created."
-      redirect_to movies_path
+      redirect_to movie_path(@movie)
     end
     def edit
       @movie = Movie.find params[:id]
