@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
     def index
-     @movies = Movie.all
+     @movies = Movie.order_movies
      #render json: @movies
 
 
