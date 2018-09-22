@@ -1,4 +1,10 @@
 class MoviesController < ApplicationController
+
+
+  rescue_from ActiveRecord::RecordNotFound do |exception|
+    flash[:error] = 'The url you tried to retrieved was not found!!'
+    redirect_to :root
+  end
     def index
      @movies = Movie.order_movies
      #render json: @movies
