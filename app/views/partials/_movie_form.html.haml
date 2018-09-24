@@ -1,3 +1,10 @@
+- unless @movie.errors.empty?
+  #warning
+    Errors prevented this movie from being #{controller.action_name}d:
+    %ul
+      - @movie.errors.full_messages.each do |error|
+        %li= error
+
 = label :movie, :title, 'Title'
 = text_field :movie, :title
 
@@ -8,5 +15,4 @@
 = date_select :movie, :release_date, :start_year => 1977, selected: Date.today
 %h3 
   Relevant Info
-
 = text_area(:movie, :description, cols: 40, rows: 3)
