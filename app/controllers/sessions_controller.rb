@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     skip_before_action :set_current_user
     def create
       auth=request.env["omniauth.auth"]
-      user=Moviegoer.where(:provider => auth["provider"], :uid => auth["uid"]) ||
+      user=Moviegoer.find_by(:provider => auth["provider"], :uid => auth["uid"]) ||
         Moviegoer.create_with_omniauth(auth)
       session[:user_id] = user.id
       redirect_to movies_path
